@@ -11,6 +11,7 @@
 		A142F5772117B1FA004E63AF /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = A142F5762117B1FA004E63AF /* Player.m */; };
 		A142F57A2117B20C004E63AF /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = A142F5792117B20C004E63AF /* Board.m */; };
 		A142F57D2117BDE5004E63AF /* InputHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A142F57C2117BDE4004E63AF /* InputHandler.m */; };
+		A142F5802117E3B1004E63AF /* PlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A142F57F2117E3B1004E63AF /* PlayerManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,8 @@
 		A142F5792117B20C004E63AF /* Board.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Board.m; sourceTree = "<group>"; };
 		A142F57B2117BDDA004E63AF /* InputHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputHandler.h; sourceTree = "<group>"; };
 		A142F57C2117BDE4004E63AF /* InputHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputHandler.m; sourceTree = "<group>"; };
+		A142F57E2117E3B1004E63AF /* PlayerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerManager.h; sourceTree = "<group>"; };
+		A142F57F2117E3B1004E63AF /* PlayerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +75,8 @@
 				A142F5782117B20C004E63AF /* Board.h */,
 				A142F5792117B20C004E63AF /* Board.m */,
 				A142F5752117B1FA004E63AF /* Player.h */,
+				A142F57E2117E3B1004E63AF /* PlayerManager.h */,
+				A142F57F2117E3B1004E63AF /* PlayerManager.m */,
 				A142F5762117B1FA004E63AF /* Player.m */,
 			);
 			path = "Snakes and Ladders";
@@ -134,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A142F57A2117B20C004E63AF /* Board.m in Sources */,
+				A142F5802117E3B1004E63AF /* PlayerManager.m in Sources */,
 				A142F5772117B1FA004E63AF /* Player.m in Sources */,
 				A142F56F2117B1DB004E63AF /* main.m in Sources */,
 				A142F57D2117BDE5004E63AF /* InputHandler.m in Sources */,

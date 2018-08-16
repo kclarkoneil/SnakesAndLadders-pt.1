@@ -10,38 +10,77 @@
 #import "InputHandler.h"
 #import "Board.h"
 #import "Player.h"
+#import "PlayerManager.h"
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        // Initialize player1 and board with message
-        NSLog(@"Welcome to Snakes and Ladders!To start the game type [roll] or [r]");
-        Player *player1 = [[Player alloc] init];
-        Board *gameBoard = [[Board alloc] init];
         
-        // Start game with while loop
-        while (player1.currentPosition < 100)
+        PlayerManager *gameTime = [[PlayerManager alloc] init];
+        
+        // Initialize player creation and board with message
+        NSLog(@"Welcome to Snakes and Ladders!How many players would you like to play with?");
+        
+        
+        Board *gameBoard = [[Board alloc] init];
+        InputHandler *input = [[InputHandler alloc] init];
+        NSString *Input = [input getInput];
+        int playersNumbers = [Input intValue];
+        NSMutableArray *players = [gameTime createPlayerswithName:playersNumbers];
+        
+        NSMutableString *scoreboard = [[NSMutableString alloc] init];
+        scoreboard = [@"Scoreboard - " mutableCopy];
+        for (Player *testPlayer in players)
+        
         {
-            //initate player1's turn
-            NSLog(@"It's %@'s turn!", player1);
-            InputHandler *input = [[InputHandler alloc] init];
-            NSString *turn = [input getInput];
-            //Roll dice if user inputs
-            if ([turn isEqualToString:@"roll"] || [turn isEqualToString:@"r"]) {
-                [player1 roll];
-                for (NSNumber *key in gameBoard.boardSetup) {
-                    if (player1.currentPosition == [key intValue])
-                    player1.currentPosition = [[gameBoard.boardSetup objectForKey:key] intValue];
-                }
-            
-            }
-            NSLog(@"%i", player1.currentPosition);
-            if (player1.currentPosition >= 100)
+            NSLog(@"The players are, %@", testPlayer.name);
+        
+        }
+        int i = 0;
+        while (true)
+        {
+            int j = i % playersNumbers;
             {
-                NSLog(@"Congratulations %@",player1);
-            break;
+            
+                Player *currentPlayer = players[j];
+                // Start game with while loop
+                
+                {
+                    //initate currentPlayer's turn
+                    NSLog(@"It's %@'s turn!", currentPlayer.name);
+                    InputHandler *input = [[InputHandler alloc] init];
+                    NSString *turn = [input getInput];
+                    //Roll dice if user inputs
+                    if ([turn isEqualToString:@"roll"] || [turn isEqualToString:@"r"]) {
+                        [currentPlayer roll];
+                        for (NSNumber *key in gameBoard.boardSetup) {
+                            if (currentPlayer.currentPosition == [key intValue])
+                            currentPlayer.currentPosition = [[gameBoard.boardSetup objectForKey:key] intValue];
+                        }
+                        NSString *playerScores = [NSString stringWithFormat:@"\n %@ : %i", currentPlayer.name, currentPlayer.currentPosition];
+                        scoreboard = [[scoreboard stringByAppendingString:playerScores] mutableCopy];
+                       
+                        NSLog(@"%i", currentPlayer.currentPosition);
+                    }
+                    
+//                    NSNumber *currentScoreBoard = [NSNumber numberWithInt:currentPlayer.currentPosition];
+                    
+                    if (j == playersNumbers - 1)
+                    {
+                        NSLog(@"%@",scoreboard);
+                        scoreboard = [@"CurrentScore - " mutableCopy];
+
+                    }
+                    
+                    if (currentPlayer.currentPosition >= 100)
+                    {
+                        NSLog(@"Congratulations %@",currentPlayer);
+                    break;
+                    }
+                                    }
+                    i ++;
+                }
             }
         }
-        
-    }
+    
     return 0;
 }

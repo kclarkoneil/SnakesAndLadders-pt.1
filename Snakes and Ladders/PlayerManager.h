@@ -1,5 +1,5 @@
 //
-//  Player.h
+//  Player Manager.h
 //  Snakes and Ladders
 //
 //  Created by Kit Clark-O'Neil on 2018-08-05.
@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Player.h"
 
-@interface Player : NSObject
+@interface PlayerManager : NSObject
 
-@property int currentPosition;
-@property NSString *name;
--(void)roll;
+
+
+-(NSMutableArray*)createPlayerswithName: (int)players;
 
 @end
